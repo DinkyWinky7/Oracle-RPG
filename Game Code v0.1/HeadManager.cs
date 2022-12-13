@@ -4,13 +4,25 @@ using System.Linq;
 
 namespace HeadManager
 {
+    public class Manager
+    {
+        #region Tutorial
+        public void Manage_Tutorial()
+        {
+            Tutorial.TutorialProgram tutorialProgram = new Tutorial.TutorialProgram();
+            tutorialProgram.Manager();
+        }
+        #endregion
+    }
+
     public class Program
     {
         public static void Main()
         {
-            
-            
-            Console.Read();
+            Manager manager = new Manager();
+            manager.Manage_Tutorial();
+
+            Console.WriteLine("Congratulations, you beat the game!");
         }
     }
 }
