@@ -47,7 +47,7 @@ namespace Tutorial
 
                 if (char.ToUpperInvariant(playerInput) == 'A')
                 {
-                    Console.WriteLine($"You striked {enemyName} and dealt {playerPower}");
+                    Console.WriteLine($"You striked {enemyName} and dealt {playerPower} damage!");
 
                     playerHealth -= enemyPower;
                     enemyHealth -= playerPower;
