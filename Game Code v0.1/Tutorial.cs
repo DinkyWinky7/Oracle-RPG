@@ -35,7 +35,7 @@ namespace Tutorial
         public void TutorialFight(string enemyName)
         {
             Console.WriteLine($"A {enemyName} has appeared! (Don't worry though, this is the tutorial.)\n");
-            Console.WriteLine("To do stuff, enter a command by pressing one of the provided buttons:");
+            Console.WriteLine("To do stuff, enter a command by pressing one of the provided buttons:\n");
 
             char playerInput;
 
@@ -45,12 +45,18 @@ namespace Tutorial
                 Console.WriteLine("(A)ttack");
                 playerInput = Convert.ToChar(Console.ReadLine());
 
+                Console.Clear();
+
                 if (char.ToUpperInvariant(playerInput) == 'A')
                 {
-                    Console.WriteLine($"You striked {enemyName} and dealt {playerPower}");
-
+                    Console.WriteLine($"\nYou striked {enemyName} and dealt {playerPower} damage!");
                     playerHealth -= enemyPower;
-                    enemyHealth -= playerPower;
+
+                    if (enemyHealth > 0)
+                    {
+                        Console.WriteLine($"{enemyName} striked you and dealt {enemyPower} damage!\n");
+                        enemyHealth -= playerPower;
+                    }
                 }
 
                 else 
@@ -58,12 +64,26 @@ namespace Tutorial
                     Console.WriteLine("Try again.");
                 }
             }
+
+            if (enemyHealth > 0)
+            {
+                if (playerHealth <= 0)
+                {
+                    Console.WriteLine("You Died.");
+                    Console.WriteLine("Please Restart the Game.");
+
+                    while (1 > 0)
+                    {
+                        Console.ReadKey();
+                    }
+                }
+            }
         }
     }
 
     public class TutorialProgram
     {
-        public static void Manager()
+        public void Manager()
         {
             {
                 cTutorialCombat tutorialCombat = new cTutorialCombat();
@@ -71,7 +91,10 @@ namespace Tutorial
                 string enemyName = tutorialCombat.GetEnemyName();
                 tutorialCombat.TutorialFight(enemyName);
 
-                Console.WriteLine("Congratulations, you beat the tutorial!");
+                Console.WriteLine("Congratulations, you beat the tutorial!\n");
+                Console.WriteLine("Press Enter to Continue:\n");
+                Console.ReadLine();
+                Console.Clear();
             }
         }
     }
