@@ -16,6 +16,8 @@ namespace HeadManager
             tutorialBossProgram.Manager();
         }
         #endregion
+
+        
     }
 
     public class Program
@@ -24,8 +26,16 @@ namespace HeadManager
         {
             Console.Clear();
 
-            cManager manager = new cManager();
-            manager.Manage_Tutorial();
+            Console.WriteLine("Skip the tutorial?");
+            Console.WriteLine("(N)o     (Y)es");
+
+            string playerInput = Convert.ToString(Console.ReadLine());
+
+            if (playerInput != Y)
+            {
+                cManager manager = new cManager();
+                manager.Manage_Tutorial();
+            }
 
             Console.WriteLine("Congratulations, you beat the game! (What it is so far)");
         }
