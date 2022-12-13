@@ -63,7 +63,7 @@ namespace Tutorial
 
     public class TutorialProgram
     {
-        public static void Manager()
+        public void Manager()
         {
             {
                 cTutorialCombat tutorialCombat = new cTutorialCombat();
