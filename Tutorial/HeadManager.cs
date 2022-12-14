@@ -31,8 +31,9 @@ namespace HeadManager
 
             string playerInput = Convert.ToString(Console.ReadLine());
 
-            if (playerInput != Y)
+            if (playerInput.ToUpperInvariant() != "Y")
             {
+                Console.Clear();
                 cManager manager = new cManager();
                 manager.Manage_Tutorial();
             }
