@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace Player
 {
-    public class Player
+    public static class cPlayer
     {
-        public string name { get; set; }
-        public int power { get; set; }
-        public int health { get; set; }
-        public float experience { get; set; }
-        public int level { get; set; }
+        public static string name { get; set; }
+        public static int power { get; set; }
+        public static int health { get; set; }
+        public static float experience { get; set; }
+        public static int level { get; set; }
     }
 }
